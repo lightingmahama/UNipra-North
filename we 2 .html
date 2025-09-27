@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bright Minds School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =========================
+     THEME & RESET
+  ==========================*/
+  :root{
+    --blue:#2D8CFF;
+    --blue-2:#5CC8FF;
+    --green:#27C093;
+    --yellow:#FFD166;
+    --pink:#FF5FA2;
+    --orange:#FF9A3E;
+    --bg:#F7FBFF;
+    --ink:#0E2A3A;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background: var(--bg);
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  
+
+  /* Hide gallery initially */
+
+/* Hide gallery initially */
+
+.background {
+    position: fixed;
+      top: 0; left: 0;
+        width: 100%;
+          height: 100%;
+            z-index: -1;
+              background-size: cover;
+                background-position: center;
+                  transition: background-image 1s ease-in-out;
+                  }
+
+   
+
+
+#gallery-2 {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  pointer-events: none;
+  transition: all 0.6s ease;
+}
+
+#gallery-2.show {
+  max-height: 2000px; /* big enough for content */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Button styling */
+.btn-wonder {
+  display:block;
+  margin: 30px auto;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-wonder:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Gallery hidden by default */
+#gallery-2 {
+  opacity: 0;
+  transform: translateY(50px);
+  pointer-events: none;
+  transition: all 0.6s ease;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+/* Gallery visible */
+#gallery-2.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Gallery title */
+.gallery2-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Grid layout */
+.gallery2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery2-grid div {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery2-grid div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.gallery2-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+}
+
+/* Stylish button */
+.btn-wonder {
+  display: inline-block;
+  margin: 30px auto;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-wonder::before,
+.btn-wonder::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.3), transparent);
+  transform: rotate(25deg);
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.btn-wonder::after {
+  transform: rotate(-25deg);
+}
+
+.btn-wonder:hover::before,
+.btn-wonder:hover::after {
+  opacity: 1;
+}
+
+.btn-wonder:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+  
+
+
+
+
+/* Gallery 2 Base */
+#gallery-2 {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}                  
+#gallery-2::before,
+#gallery-2::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+  animation: float 10s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+#gallery-2::before {
+  top: -100px;
+  left: -100px;
+}
+
+#gallery-2::after {
+  bottom: -100px;
+  right: -100px;
+}
+
+.gallery2-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery2-title::before,
+.gallery2-title::after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 80px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse 3s infinite alternate;
+}
+
+.gallery2-title::before {
+  left: -100px;
+}
+
+.gallery2-title::after {
+  right: -100px;
+}
+
+/* Grid layout */
+.gallery2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.gallery2-grid div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transform: scale(1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery2-grid div::before,
+.gallery2-grid div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  transition: 0.5s ease;
+  z-index: 1;
+}
+
+.gallery2-grid div::before {
+  border: 3px solid rgba(255,255,255,0.3);
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+.gallery2-grid div::after {
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+}
+
+/* Image */
+.gallery2-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  position: relative;
+  z-index: 0;
+}
+
+/* Hover Effects */
+.gallery2-grid div:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.gallery2-grid div:hover::before {
+  opacity: 1;
+}
+
+.gallery2-grid div:hover::after {
+  opacity: 1;
+}
+
+.gallery2-grid div:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Animations */
+@keyframes float {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(30px) scale(1.05); }
+}
+
+@keyframes pulse {
+  from { opacity: 0.5; transform: scaleX(0.8) translateY(-50%); }
+  to { opacity: 1; transform: scaleX(1.2) translateY(-50%); }
+}
+
+
+
+
+
+
+
+
+
+
+  /* Buttons */
+.button-block {
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+  #image-display {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+#image-display img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+#image-display img:hover {
+  transform: scale(1.05);
+}
+  
+
+  /* Shared button ba*/
+  button{
+  position: relative;
+  margin: 12px;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+/* 1. Glow Button with radial ::before */
+.btn-style1 {
+  color: #fff;
+  background: #007bff;
+  border-radius: 30px;
+}
+.btn-style1::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,123,255,0.5), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+.btn-style1:hover::before {
+  opacity: 1;
+}
+
+/* 2. Outline Button with slide-in ::after */
+.btn-style2 {
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+}
+.btn-style2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #007bff;
+  z-index: -1;
+  transition: left 0.4s;
+}
+.btn-style2:hover {
+  color: #fff;
+}
+.btn-style2:hover::after {
+  left: 0;
+}
+
+/* 3. Gradient Button with shine effect */
+.btn-style3 {
+  color: white;
+  background: linear-gradient(135deg, #ff6a00, #ffb347);
+  border-radius: 25px;
+}
+.btn-style3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-25deg);
+  transition: left 0.5s;
+}
+.btn-style3:hover::before {
+  left: 125%;
+}
+
+/* 4. Neon Button with glow ::after */
+.btn-style4 {
+  color: #39ff14;
+  border: 2px solid #39ff14;
+  border-radius: 12px;
+  background: black;
+}
+.btn-style4::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+.btn-style4:hover::after {
+  opacity: 1;
+}
+
+/* 5. 3D Button with slice ::before and ::after */
+.btn-style5 {
+  color: #fff;
+  background: #ff007f;
+  border-radius: 8px;
+}
+.btn-style5::before,
+.btn-style5::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(0,0,0,0.2);
+  transform: skewY(-3deg);
+  transition: transform 0.3s;
+  z-index: -1;
+}
+.btn-style5::before {
+  top: 0;
+}
+.btn-style5::after {
+  bottom: 0;
+}
+.btn-style5:hover::before {
+  transform: skewY(-8deg);
+}
+.btn-style5:hover::after {
+  transform: skewY(8deg);
+}
+  
+
+
+
+
+
+
+/* Button style */
+.btn2-2 {
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn2-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-30deg);
+  transition: 0.5s;
+}
+
+.btn2-2:hover::before {
+  left: 100%;
+}
+
+.btn2-2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 174, 255, 0.9);
+}
+
+/* Gallery */
+.gallery {
+  display: none;
+  margin-top: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 174, 255, 0.4);
+  outline: 2px solid rgba(255, 255, 255, 0.15);
+  outline-offset: 3px;
+  animation: floatLogo 6s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 10px 30px rgba(0, 174, 255, 0.65);
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+/* Button styling */
+.b2tn {
+  position: relative;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 114, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.b2tn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10.01%);
+  background-size: 20% 20%;
+  animation: shine 6s linear infinite;
+  z-index: 0;
+}
+.b2tn span { position: relative; z-index: 1; }
+.b2tn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(0, 114, 255, 0.9);
+}
+@keyframes shine {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50%, 50%); }
+}
+
+/* Popup form box (hidden by default) */
+.popup-form {
+  display: none;
+  margin: 20px auto;
+  padding: 25px;
+  width: 400px;
+  max-width: 95%;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 114, 255, 0.3);
+  animation: pop 0.4s ease;
+}
+.popup-form h2 {
+  margin-bottom: 15px;
+  color: #0072ff;
+  text-align: center;
+}
+.popup-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+.popup-form input,
+.popup-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+.popup-form input:focus,
+.popup-form textarea:focus {
+  border-color: #0072ff;
+  box-shadow: 0 0 8px rgba(0, 114, 255, 0.3);
+}
+.popup-form button {
+  margin-top: 15px;
+  background: #0072ff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.popup-form button:hover {
+  background: #0056cc;
+}
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+  
+
+  /* ========= Intro (Cinematic) ========= */
+  .intro{
+    position:fixed; inset:0;
+    background:
+      radial-gradient(1200px 600px at 70% -20%, rgba(255,255,255,.15), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(255,255,255,.15), transparent 60%),
+      linear-gradient(135deg, #072146 0%, #0b3a7e 50%, #0c4fb8 100%);
+    display:grid; place-items:center;
+    z-index:9999;
+    overflow:hidden;
+  }
+  .intro__wrap{
+    position:relative; width:min(650px,90vw); aspect-ratio: 16/9;
+    display:grid; place-items:center;
+  }
+
+  /* Spotlight cone using ::before, glow mist using ::after */
+  .intro__wrap::before,
+  .intro__wrap::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+  }
+  /* Spotlight cone */
+  .intro__wrap::before{
+    --cx: 50%;
+    --cy: -10%;
+    background:
+      radial-gradient(60% 90% at var(--cx) var(--cy),
+        rgba(255,255,255,.85), rgba(255,255,255,.55) 30%,
+        rgba(255,255,255,.15) 55%, transparent 70%);
+    filter: blur(8px);
+    mix-blend-mode: screen;
+    transform-origin: top center;
+    animation: cone-sweep 4.2s ease-in-out 0.4s forwards;
+  }
+  /* Dusty glow particles */
+  .intro__wrap::after{
+    background:
+      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.8), transparent 60%),
+      radial-gradient(2px 2px at 60% 55%, rgba(255,255,255,.8), transparent 60%),
+      radial-gradient(1.5px 1.5px at 75% 25%, rgba(255,255,255,.8), transparent 60%),
+      radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,.8), transparent 60%);
+    opacity:.25; filter: blur(.5px);
+    animation: twinkle 3s ease-in-out infinite alternate;
+
+
+
+  }
+
+  /* SVG Scene container */
+  .intro__stage{
+    width:100%; height:100%;
+    position:relative;
+  }
+
+  /* The child silhouette + brain SVG */
+  .intro svg{
+    width:100%; height:100%;
+    overflow:visible;
+  }
+
+  /* Brain glow */
+  .brain{
+    fill: none;
+    stroke: #FF9AD1;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px #ff6ec7) drop-shadow(0 0 16px #ff6ec7);
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: brain-draw 2.4s ease-out 1.2s forwards, brain-pulse 2.2s ease-in-out 3.4s infinite;
+  }
+
+  /* Head silhouette */
+  .head{
+    fill: url(#gradSkin);
+    stroke: rgba(255,255,255,.65);
+    stroke-width: 2.5;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,.35));
+  }
+
+  /* Title reveal */
+  .intro__title{
+    position:absolute; inset:auto 0 4%;
+    text-align:center; color:white;
+    font-family:"Baloo 2", cursive;
+    font-weight:700; letter-spacing:.5px;
+    text-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 18px rgba(90,180,255,.7);
+    opacity:0; transform: translateY(12px) scale(.98);
+    animation: title-in 1s ease-out 2.6s forwards;
+  }
+  .intro__title small{display:block; font-weight:500; opacity:.9}
+
+  /* Fade the whole intro away */
+  .intro.out{
+    animation: intro-out .9s ease-in forwards;
+  }
+
+  /* Prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce){
+    .intro__wrap::before{animation:none}
+    .brain{animation:none; stroke-dashoffset:0}
+    .intro__title{opacity:1; transform:none}
+    .intro.out{animation:none; opacity:0; visibility:hidden}
+  }
+
+  @keyframes cone-sweep{
+    0%{ transform: rotate(-12deg) scale(1.1); opacity:.0 }
+    10%{ opacity:.9 }
+    50%{ transform: rotate(10deg) scale(1.05) }
+    100%{ transform: rotate(0deg) scale(1); opacity:.95 }
+  }
+  @keyframes twinkle{
+    from{ opacity:.15; transform: translateY(-3px) }
+    to{ opacity:.35; transform: translateY(3px) }
+  }
+  @keyframes brain-draw{
+    to{ stroke-dashoffset:0 }
+  }
+  @keyframes brain-pulse{
+    0%,100%{ filter: drop-shadow(0 0 6px #ff6ec7) drop-shadow(0 0 16px #ff6ec7) }
+    50%{ filter: drop-shadow(0 0 10px #ffd1ea) drop-shadow(0 0 28px #ffd1ea) }
+  }
+  @keyframes title-in{
+    to{ opacity:1; transform: translateY(0) scale(1) }
+  }
+  @keyframes intro-out{
+    to{ opacity:0; visibility:hidden }
+  }
+
+
+
+
+  /* Reset margin/padding */
+  * {
+    margin: 0;
+      padding: 0;
+        box-sizing: border-box;
+        }
+
+   
+
+        /* Header styles */
+        header {
+           /* header height */
+            background-image: url("https://picsum.photos/400/300?random=1");
+              display: flex;
+                align-items: center;
+                  justify-content: center;
+                    color: white;
+                          text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+                          }
+
+                          /* Rest of page */
+                  
+
+  /* ========= NAV ========= */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(45,140,255,.18);
+
+
+
+  }
+  .nav__inner{
+    max-width:1100px; margin:0 auto; padding:12px 20px;
+    display:flex; align-items:center; gap:18px; justify-content:space-between;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px; font-weight:800; color:var(--ink);
+    letter-spacing:.3px;
+  }
+  .brand .dot{
+    width:26px; height:26px; border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, #fff, var(--blue) 60%);
+    box-shadow: 0 0 0 3px #cde6ff, 0 6px 16px rgba(45,140,255,.45);
+  }
+  .nav a{
+    color:var(--ink); font-weight:800;
+    padding:8px 12px; border-radius:10px;
+  }
+  .nav a:hover{
+    background:linear-gradient(90deg, #e9f3ff, #f3fbff);
+    box-shadow: 0 6px 14px rgba(45,140,255,.18);
+    color:#0b4ea2;
+  }
+  .nav__links{display:flex; gap:6px; flex-wrap:wrap}
+
+  /* ========= HERO ========= */
+  .hero{
+    background:
+      radial-gradient(800px 300px at -10% 0%, rgba(92,200,255,.35), transparent 70%),
+      radial-gradient(600px 300px at 110% 100%, rgba(39,192,147,.25), transparent 70%),
+      linear-gradient(180deg, #ffffff, #F7FBFF 55%, #ECF6FF);
+  }
+  .hero__inner{
+    max-width:1100px; margin:0 auto; padding: clamp(48px, 7vw, 96px) 20px 70px;
+    display:grid; grid-template-columns: 1.2fr 1fr; align-items:center; gap:24px;
+  }
+  .badge{
+    display:inline-flex; gap:8px; align-items:center; padding:8px 12px;
+    background:#EAF4FF; border:1.5px dashed #9cd2ff; color:#0b4ea2; font-weight:800;
+    border-radius:999px; box-shadow: 0 6px 12px rgba(45,140,255,.12);
+  }
+  .hero h1{
+    font-family:"Baloo 2", cursive; font-weight:800;
+    font-size: clamp(32px, 5.2vw, 56px); line-height:1.08; margin:14px 0 10px;
+    color:#0b3a7e;
+    text-shadow: 0 3px 0 #cde6ff;
+  }
+  .hero p{font-size:1.125rem; color:#154b72}
+  .cta{
+    margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .btn{
+    padding:12px 18px; border-radius:14px; font-weight:800; border:none; cursor:pointer;
+    transition:.25s transform ease, .25s box-shadow ease, .25s background ease;
+  }
+  .btn--primary{
+    background:linear-gradient(180deg, var(--blue), #0b4ea2);
+    color:white; box-shadow:0 10px 18px rgba(45,140,255,.35);
+  }
+  .btn--primary:hover{ transform: translateY(-2px) scale(1.02) }
+  .btn--ghost{
+    background:#ffffff; color:#0b4ea2; border:2px solid #cde6ff;
+  }
+  .hero__art{
+    position:relative; min-height:280px;
+  }
+  .hero__art .cloud{
+    position:absolute; width:120px; height:60px; background:#fff; border-radius:60px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    filter: drop-shadow(0 6px 12px rgba(45,140,255,.15));
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero__art .cloud::before,
+  .hero__art .cloud::after{
+    content:""; position:absolute; background:#fff; border-radius:50%;
+  }
+  .hero__art .cloud::before{ width:70px; height:70px; left:-25px; top:-20px }
+  .hero__art .cloud::after{ width:80px; height:80px; right:-20px; top:-30px }
+  .cloud.c1{ left:10%; top:22% }
+  .cloud.c2{ right:12%; top:10%; animation-delay:.8s; transform: scale(1.2)}
+  .cloud.c3{ left:55%; bottom:15%; animation-delay:1.3s; transform: scale(.9)}
+  @keyframes float{
+    0%,100%{ transform: translateY(0) }
+    50%{ transform: translateY(-10px) }
+  }
+
+  /* ========= SECTIONS ========= */
+  section{
+    padding:64px 20px;
+  }
+  .wrap{ max-width:1100px; margin:0 auto }
+  .title{
+    font-family:"Baloo 2", cursive; font-size: clamp(26px, 3.6vw, 40px);
+    color:#0b3a7e; margin-bottom:14px;
+  }
+  .kicker{ color:#0b4ea2; font-weight:800; letter-spacing:.5px; text-transform:uppercase }
+
+  /* About */
+  .about__grid{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap:24px; align-items:center;
+  }
+  .about__card{
+    background:#ffffff; border:2px solid #e8f2ff; border-radius:18px; padding:22px;
+    box-shadow: 0 14px 28px rgba(45,140,255,.1);
+  }
+  .pill{
+    display:inline-block; padding:8px 12px; border-radius:999px; font-weight:800; margin:6px 6px 0 0;
+  }
+  .pill--blue{ background:#EAF4FF; color:#0b4ea2; }
+  .pill--green{ background:#EAF9F4; color:#0c7b61;}
+  .pill--yellow{ background:#FFF6DF; color:#8a5b00;}
+
+  /* Academics */
+  .cards{
+    display:grid; grid-template-columns: repeat( auto-fit, minmax(220px,1fr) );
+    gap:16px; margin-top:16px;
+  }
+  .card{
+    background:#fff; border:2px solid #eaf2ff; border-radius:16px; padding:18px;
+    box-shadow: 0 10px 22px rgba(0,0,0,.05);
+    transition: .25s transform ease, .25s box-shadow ease;
+  }
+  .card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(45,140,255,.16);
+  }
+  .card__tag{
+    display:inline-flex; align-items:center; gap:6px; font-weight:800; color:#0b4ea2;
+    background:#ecf6ff; border-radius:999px; padding:6px 10px; margin-bottom:10px;
+  }
+
+  /* Admissions timeline */
+  .steps{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px;
+  }
+  .step{
+    background:linear-gradient(180deg,#ffffff,#f7fbff);
+    border:2px dashed #d7ebff; border-radius:16px; padding:18px;
+  }
+
+  /* News & Events */
+  .news{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px;
+  }
+  .news__item{
+    background:#fff; border:2px solid #eaf2ff; border-radius:16px; overflow:hidden;
+    display:grid; grid-template-rows: 160px auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,.05);
+  }
+  .news__img{ background: linear-gradient(135deg, #b8e1ff, #cafff3) }
+  .news__body{ padding:14px }
+  .chip{
+    display:inline-block; padding:6px 10px; border-radius:999px; font-weight:800;
+    background:#eaf9f4; color:#0c7b61; margin-right:6px;
+  }
+
+  /* Contact */
+  .contact__grid{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap:20px; align-items:start;
+  }
+  form{
+    background:#fff; border:2px solid #eaf2ff; border-radius:16px; padding:16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.05);
+  }
+  label{ font-weight:800; color:#0b4ea2; font-size:.95rem }
+  input, textarea{
+    width:100%; padding:12px 14px; border-radius:12px; border:2px solid #eaf2ff; margin-top:6px;
+    font: inherit; outline:none; transition:.2s border-color ease, .2s box-shadow ease;
+    background:#fbfeff;
+  }
+  input:focus, textarea:focus{
+    border-color:#bfe0ff; box-shadow: 0 0 0 4px #eaf4ff;
+  }
+  .btn-send{
+    margin-top:10px; background:linear-gradient(90deg,#2D8CFF,#00B2FF); color:#fff; border:none;
+    padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer;
+    box-shadow: 0 10px 18px rgba(45,140,255,.25);
+  }
+  .btn-send:hover{ transform: translateY(-2px) }
+
+  /* Footer */
+  .footer{
+    background:#0b3a7e; color:#eaf4ff; padding:26px 20px; text-align:center; margin-top:32px;
+  }
+
+  /* Utilities */
+  .fade-up{ opacity:0; transform:translateY(18px); transition: .7s ease }
+  .show{ opacity:1; transform:none }
+
+  /* Responsive tweaks */
+  @media (max-width:960px){
+    .hero__inner{ grid-template-columns: 1fr; }
+    .about__grid{ grid-template-columns: 1fr; }
+    .contact__grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================
+     INTRO: Child Silhouette with Brain + Spotlight
+========================== -->
+<div class="intro" id="intro" aria-label="Intro animation of a child silhouette with a glowing brain and a spotlight">
+  <div class="intro__wrap">
+    <div class="intro__stage">
+      <!-- SVG: child head silhouette + brain (stylized, friendly) -->
+      <svg viewBox="0 0 800 450" role="img" aria-labelledby="introTitle">
+        <title id="introTitle">UNIPRA NORTH JHS </title>
+
+
+        
+          
+
+
+        <defs>
+          <!-- soft skin gradient -->
+          <linearGradient id="gradSkin" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#9cc8ff"/>
+            <stop offset="100%" stop-color="#cfe4ff"/>
+          </linearGradient>
+          <!-- halo glow behind head -->
+          <radialGradient id="halo" cx="60%" cy="45%" r="55%">
+            <stop offset="0%" stop-color="rgba(255,255,255,.85)"/>
+            <stop offset="70%" stop-color="rgba(255,255,255,.15)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+
+        <!-- background halo -->
+        <ellipse cx="480" cy="200" rx="230" ry="160" fill="url(#halo)"></ellipse>
+
+        <!-- Friendly child side-profile head (stylized) -->
+        <path class="head" d="M560,255
+          c-6,28-32,52-70,62
+          c-21,6-38,21-47,40
+          c-4,9-14,15-24,15
+          c-22,0-40-18-40-40
+          c0-10,4-19,10-26
+          c-15-9-25-26-25-45
+          c0-25,18-45,41-49
+          c-8-10-13-23-13-37
+          c0-33,27-60,60-60
+          c20,0,38,10,49,25
+          c7-3,15-5,23-5
+          c31,0,56,25,56,56
+          c0,21-11,39-28,49
+          c9,12,13,27,8,43z" />
+
+        <!-- Brain (friendly squiggle) -->
+        <path class="brain"
+          d="M470 155
+             q-22 -22 -48 0
+             q-10 8 -10 22
+             q-20 -4 -32 12
+             q-8 10 -3 24
+             q-18 8 -12 28
+             q4 12 16 16
+             q-6 16 10 26
+             q16 10 30 0
+             q10 18 32 12
+             q16 -4 22 -18
+             q18 10 32 -4
+             q10 -10 6 -24
+             q18 -2 22 -18
+             q4 -16 -10 -26
+             q14 -8 10 -26
+             q-6 -24 -33 -22" />
+
+      </svg>
+      <div class="background"></div>
+    </div>
+
+    <div class="intro__title">
+      <div style="font-size:clamp(24px,3.8vw,40px)">UNIPRA NORTH School</div>
+      <small>Where curiosity gets the spotlight</small>
+    </div>
+  </div>
+</div>
+
+<!-- =========================
+     NAV
+========================== -->
+
+<header class="nav" role="navigation" aria-label="Primary">
+  <div class="nav__inner">
+    <div class="brand">
+      
+
+    
+    
+    
+  
+
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/bR2LDWjQ/logo.png" alt="logo" border="0"></a>
+
+     
+  
+
+      <span>UNIPRA NORTH JHS </span>
+    </div>
+    <nav class="nav__links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#news">News & Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================
+     HOME / HERO
+========================== -->
+<section id="home" class="hero" aria-label="Welcome">
+  <div class="hero__inner">
+    <div>
+      <span class="badge">🏫 Welcome to our school</span>
+      <h1>Colorful learning for curious minds</h1>
+      <p class="fade-up">We blend play, projects, and purpose to help every child shine.
+        A safe, inclusive space where creativity, character, and curiosity grow together.</p>
+      <div class="cta">
+        <a href="#admissions" class="btn btn--primary">Enroll Now</a>
+        <a href="#academics" class="btn btn--ghost">Explore Academics</a>
+      </div>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     ABOUT
+========================== -->
+<section id="about" aria-label="About our school">
+  <div class="wrap">
+    <div class="kicker">About Us</div>
+    <h2 class="title">Mission • Vision • Values</h2>
+    <div class="about__grid">
+      <div class="about__card fade-up">
+        <h3>Our Mission</h3>
+        <p>To nurture confident, compassionate learners through joyful discovery, strong academics, and community partnership.</p>
+        <div>
+          <span class="pill pill--blue">Creativity</span>
+          <span class="pill pill--green">Character</span>
+          <span class="pill pill--yellow">Curiosity</span>
+        </div>
+      </div>
+      <div class="about__card fade-up">
+        <h3>Our Vision</h3>
+        <p>A school where every child is seen, supported, and celebrated — ready to shape the future with heart and skill.</p>
+        <ul>
+          <li>Small classes & caring teachers</li>
+          <li>Rich arts, STEM, and sports programs</li>
+          <li>Safe, vibrant campus & community</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     ACADEMICS
+========================== -->
+<section id="academics" aria-label="Academic programs">
+  <div class="wrap">
+    <div class="kicker">Academics</div>
+    <h2 class="title">Programs & Subjects</h2>
+    <div class="cards">
+      <article class="card fade-up">
+        <div class="card__tag">📘 Early Years</div>
+        Play-based learning, phonics, numbers, songs, and social skills.
+        
+
+       
+
+
+      </article>
+      <article class="card fade-up">
+        <div class="card__tag">🧮 Mathematics</div>
+        Hands-on problem solving, math games, and real-life projects.
+      </article>
+      <article class="card fade-up">
+        <div class="card__tag">🔬 Science & STEM</div>
+        Experiments, coding clubs, robotics and eco projects.
+        
+        
+<!-- Button 1 with its own gallery slot -->
+
+
+
+
+
+
+    
+      </article>
+      <article class="card fade-up">
+        <div class="card__tag">📚 Literacy</div>
+        Guided reading, creative writing, and public speaking.
+      </article>
+      <article class="card fade-up">
+        <div class="card__tag">🎨 Arts & Music</div>
+        Visual arts, choir, instruments, and performances.
+       
+
+        
+        
+       
+
+
+
+
+
+      </article>
+      <article class="card fade-up">
+        <div class="card__tag">⚽ Sports</div>
+        Fitness, teamwork, competitions and healthy habits.
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     ADMISSIONS
+========================== -->
+<section id="admissions" aria-label="Admissions">
+  <div class="wrap">
+    <div class="kicker">Admissions</div>
+    <h2 class="title">Join Our Community</h2>
+    <div class="steps">
+      <div class="step fade-up">
+        <h3>1) Visit & Tour</h3>
+        <p>Book a campus tour and meet our staff and students.
+
+         <button class="btn-wonder">view Gallery</button>
+         <div id="gallery-2" class="hidden">
+  <h2 class="gallery2-title">Gallery 2</h2>
+  <div class="gallery2-grid">
+
+    <a href="https://ibb.co/zHRL8Tf2"><img src="https://i.ibb.co/bRByHMdv/IMG-20250910-WA0007.jpg" alt="IMG-20250910-WA0007" border="0" /></a>
+    <div class="box-magic"><img src="
+      
+        
+      
+      " alt=""></div>
+    <div class="frame-light>
+       <a href="https://ibb.co/N6WdHSQ0"><img src="https://i.ibb.co/Z6cpkmtQ/IMG-20250910-WA0005.jpg" alt="IMG-20250910-WA0005" border="0"></a></div>
+    <div class="card-flow">
+      
+      <a href="https://ibb.co/mCzCnGV5"><img src="https://i.ibb.co/XZJZnbrx/IMG-20250906-WA0007.jpg" alt="IMG-20250906-WA0007" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
+    
+    </div>
+    <div class="frame-light">
+
+
+     <a href="https://ibb.co/mCzCnGV5"><img src="https://i.ibb.co/XZJZnbrx/IMG-20250906-WA0007.jpg" alt="IMG-20250906-WA0007" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
+    
+    </div>
+    <div class="box-glow">
+      
+      <a href="https://ibb.co/kVyq9xYc"><img src="https://i.ibb.co/TDTPbkzh/IMG-20250906-WA0008.jpg" alt="IMG-20250906-WA0008" border="0"></a>
+    
+    </div>
+    <div class="tile-shadow">
+      
+      <a href="https://ibb.co/21YVBSzs"><img src="https://i.ibb.co/C3sCF6jM/IMG-20250910-WA0001.jpg" alt="IMG-20250910-WA0001" border="0"></a>
+    
+    </div>
+    <div class="card-wave">
+      
+      <a href="https://ibb.co/F4zDP46B"><img src="https://i.ibb.co/PGg6SGx5/IMG-20250910-WA0004.jpg" alt="IMG-20250910-WA0004" border="0"></a>
+    
+    </div>
+    <div class="frame-magic">
+      <a href="https://ibb.co/21YVBSzs"><img src="https://i.ibb.co/C3sCF6jM/IMG-20250910-WA0001.jpg" alt="IMG-20250910-WA0001" border="0"></a>
+    </div>
+  </div>
+</div>
+
+
+        
+
+        </p>
+      </div>
+      <div class="step fade-up">
+        <div class="apply-jorm
+      ">
+        <h3>2) Apply</h3>
+        <p>Complete the application form and submit documents.</p>
+        <!-- Button -->
+<button class="btn b2tn" id="openForm"><span>Apply for Admission</span></button>
+
+<!-- Popup Form -->
+<div class="popup-form" id="formBox">
+  <h2>School Application Form</h2>
+  
+  <form
+  action="https://formspree.io/f/mkgvkwyj"
+  method="POST"
+  >
+
+    <!-- SECTION A -->
+    <h3>SECTION A: Personal Information</h3>
+    <label>Surname:</label>
+    <input type="text" name="surname" required>
+
+    <label>Middle Name:</label>
+    <input type="text" name="middlename">
+
+    <label>First Name:</label>
+    <input type="text" name="firstname" required>
+
+    <label>Date of Birth:</label>
+    <input type="date" name="dob" required>
+
+    <label>Gender:</label>
+    <select name="gender" required>
+      <option value="">-- Select --</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+      <label>Class Applying For:</label>
+<select name="class_applying" required>
+  <option value="">-- Select --</option>
+  <option>Grade 1</option>
+  <option>Grade 2</option>
+  <option>Grade 3</option>
+  <option>Grade 4</option>
+  <option>Grade 5</option>
+  <option>Grade 6</option>
+  <option>JHS 1</option>
+  <option>JHS 2</option>
+  <option>JHS 3</option>
+</select>
+
+    <label>Residence:</label>
+    <input type="text" name="residence" required>
+
+    <label>Email (if any):</label>
+    <input type="email" name="student_email">
+
+    <!-- SECTION B -->
+    <h3>SECTION B: Parent / Guardian Information</h3>
+    <h4>Father's Information</h4>
+    <label>Father's Name:</label>
+    <input type="text" name="father_name">
+
+    <label>Contact:</label>
+    <input type="tel" name="father_contact">
+
+    <label>Residence:</label>
+    <input type="text" name="father_residence">
+
+    <label>Email (if any):</label>
+    <input type="email" name="father_email">
+
+    <h4>Mother's Information</h4>
+    <label>Mother's Name:</label>
+    <input type="text" name="mother_name">
+
+    <label>Contact:</label>
+    <input type="tel" name="mother_contact">
+
+    <label>Residence:</label>
+    <input type="text" name="mother_residence">
+
+    <label>Email (if any):</label>
+    <input type="email" name="mother_email">
+
+    <!-- SECTION C -->
+    <h3>SECTION C: Academic Background</h3>
+    <label>Previous School Attended:</label>
+    <input type="text" name="prev_school">
+
+    <label>Grade Level:</label>
+    <input type="text" name="grade_level">
+
+    <label>Previous Class Position:</label>
+    <input type="text" name="class_position">
+
+    <!-- SECTION D -->
+    <h3>SECTION D: Health and Safety</h3>
+    <label>Do you have any allergy?</label>
+<input type="checkbox" id="hasAllergy" name="has_allergy">
+<label for="hasAllergy">Yes</label>
+
+<!-- Hidden allergy details input -->
+<div id="allergyDetails" style="display:none; margin-top:10px;">
+  <label>Please specify:</label>
+  <input type="text" name="allergy_detail" placeholder="Type allergy here">
+</div>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+
+</div>
+
+
+        <!--<button class="b2tn">applcation form</button>-->
+        </div>
+      </div>
+      <div class="step fade-up">
+        <h3>3) Assessment</h3>
+        <p>We’ll schedule a friendly readiness assessment.</p>
+      </div>
+      <div class="step fade-up">
+        <h3>4) Welcome!</h3>
+        <p>Receive your offer and join our Bright Minds family.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     NEWS & EVENTS
+========================== -->
+<section id="news" aria-label="News and Events">
+  <div class="wrap">
+    <div class="kicker">News & Events</div>
+    <h2 class="title">What’s Happening</h2>
+    <div class="news">
+      <article class="news__item fade-up">
+        <div class="news__img"></div>
+        <div class="news__body">
+          <span class="chip">Event</span>
+          <h3>Science Fair Week</h3>
+          <p>Hands-on exhibits, student projects, and guest scientists.</p>
+        </div>
+      </article>
+      <article class="news__item fade-up">
+        <div class="news__img" style="background:linear-gradient(135deg,#ffd6a3,#fff6bf)"></div>
+        <div class="news__body">
+          <span class="chip" style="background:#fff1e3;color:#9a4b00">Update</span>
+          <h3>New Library Corner</h3>
+          <p>Cozy reading books, story time, and book swaps.</p>
+        </div>
+      </article>
+      <article class="news__item fade-up">
+        <div class="news__img" style="background:linear-gradient(135deg,#c1ffd7,#dff7ff)"></div>
+        <div class="news__body">
+          <span class="chip">Event</span>
+          <h3>Sports Day</h3>
+          <p>Team spirit, family picnic, and friendly competitions.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     CONTACT
+========================== -->
+<section id="contact" aria-label="Contact us">
+  <div class="wrap">
+    <div class="kicker">Contact</div>
+    <h2 class="title">We’d love to hear from you</h2>
+    <div class="contact__grid">
+      <div class="fade-up">
+        <h3>Get in touch</h3>
+        <p><strong>Address:</strong> Post Office BOX ku 182</p>
+        <p><strong>Phone:</strong> 0553111407</p>
+        <p><strong>Email:</strong> affulbrownishmael072@gmail.com</p>
+        <p>Office hours: Mon–Fri, 7:00am-3:00pm</p>
+      </div>
+
+
+    
+
+
+
+
+
+  
+
+  
+
+
+
+      <form class="fade-up" onsubmit="event.preventDefault(); alert('Thanks! We will get back to you soon.');">
+        <label for="name">Your Name</label>
+        <input id="name" name="name" required placeholder="Jane Doe" />
+        <label for="email">CONTACT</label>
+        <input id="email" type="email" name="email" required placeholder="you@exampl "/>
+        <label for="msg">Message</label>
+        <textarea id="msg" name="message" rows="5" placeholder="How can we help?"></textarea>
+        <button class="btn-send" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  © <span id="year"></span> UNIPRA NORTH JHS All rights reserved.
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Auto fade intro after 4.8s
+  const intro = document.getElementById('intro');
+  const fadeIntro = () => { intro.classList.add('out'); setTimeout(()=>intro.remove(), 1000); };
+  setTimeout(fadeIntro, 4800);
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  },{threshold:.18});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+  // Respect reduced motion: instantly show content
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('show')); }
+
+  const openBtn = document.getElementById("openForm");
+const formBox = document.getElementById("formBox");
+
+openBtn.addEventListener("click", () => {
+  formBox.style.display = "block"; // show the form when button is clicked
+});
+// Show/hide allergy details input
+const allergyCheckbox = document.getElementById("hasAllergy");
+const allergyDetails = document.getElementById("allergyDetails");
+
+allergyCheckbox.addEventListener("change", () => {
+  allergyDetails.style.display = allergyCheckbox.checked ? "block" : "none";
+});
+
+
+
+//
+
+
+
+
+const btnWonder = document.querySelector(".btn-wonder");
+const gallery2 = document.getElementById("gallery-2");
+
+btnWonder.addEventListener("click", () => {
+  gallery2.classList.toggle("show");
+});
+
+// Array of Picsum backgrounds
+const backgrounds = [
+  "https://picsum.photos/1920/1080?random=20",
+    "https://picsum.photos/1920/1080?random=21",
+      "https://picsum.photos/1920/1080?random=22",
+        "https://picsum.photos/1920/1080?random=23"
+        ];
+
+        let current = 0;
+        const bg = document.querySelector(".background");
+
+        // Set the first background
+        bg.style.backgroundImage = `url('${backgrounds[current]}')`;
+
+        // Change every 6 seconds
+        setInterval(() => {
+          current = (current + 1) % backgrounds.length;
+            bg.style.backgroundImage = `url('${backgrounds[current]}')`;
+            }, 6000);
+
+</script>
+</body>
+</html>
